@@ -54,3 +54,7 @@ long_power_failure_count 3.0
 # TYPE gas_used_m3 counter
 gas_used_m3 405.737
 ```
+
+## Grafana dashboard example
+
+![Grafana Example Dashboard](https://i.imgur.com/0fGIrwr.png)
