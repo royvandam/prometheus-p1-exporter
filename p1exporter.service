@@ -1,0 +1,11 @@
+[Unit]
+Description=P1 Exporter Service
+After=network.target
+
+[Service]
+Type=simple
+User=p1
+ExecStart=/usr/bin/env python3 /home/p1/p1exporter.py
+
+[Install]
+WantedBy=multi-user.target
