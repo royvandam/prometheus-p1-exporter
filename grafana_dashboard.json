@@ -49,7 +49,7 @@
       },
       "id": 8,
       "panels": [],
-      "title": "Energy",
+      "title": "Power",
       "type": "row"
     },
     {
@@ -405,6 +405,96 @@
       "valueName": "current"
     },
     {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorPrefix": false,
+      "colorValue": true,
+      "colors": [
+        "#299c46",
+        "#73BF69",
+        "#d44a3a"
+      ],
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 21,
+        "y": 1
+      },
+      "id": 28,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "Tariff:",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "current_electricity_tariff",
+          "instant": false,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "1,2",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "singlestat",
+      "valueFontSize": "50%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "Low",
+          "value": "1"
+        },
+        {
+          "op": "=",
+          "text": "High",
+          "value": "2"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
@@ -413,7 +503,7 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 7,
+        "h": 9,
         "w": 24,
         "x": 0,
         "y": 6
@@ -427,7 +517,7 @@
         "hideZero": false,
         "max": true,
         "min": true,
-        "rightSide": true,
+        "rightSide": false,
         "show": true,
         "total": false,
         "values": true
@@ -505,6 +595,112 @@
       }
     },
     {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "id": 32,
+      "panels": [],
+      "title": "Energy",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 30,
+      "interval": "",
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": true,
+        "values": true
+      },
+      "lines": false,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "6.3.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": true,
+      "targets": [
+        {
+          "expr": "increase(electricity_used_kwh[30m]) * 1000",
+          "instant": false,
+          "interval": "30m",
+          "intervalFactor": 1,
+          "legendFormat": "Tariff {{tariff}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Energy used (30min)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "watth",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
       "cacheTimeout": null,
       "colorBackground": false,
       "colorValue": false,
@@ -524,8 +720,263 @@
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 0,
-        "y": 13
+        "x": 12,
+        "y": 16
+      },
+      "id": 37,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "pluginVersion": "6.3.5",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "sum(increase(electricity_used_kwh[24h])) without (tariff) * 1000",
+          "instant": true,
+          "interval": "24h",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total (24h)",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "format": "watth",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 16,
+        "y": 16
+      },
+      "id": 36,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "pluginVersion": "6.3.5",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "increase(electricity_used_kwh{tariff=\"2\"}[24h]) * 1000",
+          "instant": true,
+          "interval": "24h",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "High tariff (24h)",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "format": "watth",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 20,
+        "y": 16
+      },
+      "id": 35,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "pluginVersion": "6.3.5",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "increase(electricity_used_kwh{tariff=\"1\"}[24h]) * 1000",
+          "instant": true,
+          "interval": "24h",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Low tariff (24h)",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "format": "watth",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 12,
+        "y": 19
       },
       "id": 13,
       "interval": null,
@@ -577,7 +1028,7 @@
       "thresholds": "",
       "timeFrom": null,
       "timeShift": null,
-      "title": "Total",
+      "title": "Total (all time)",
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -609,93 +1060,8 @@
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 4,
-        "y": 13
-      },
-      "id": 25,
-      "interval": null,
-      "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "options": {},
-      "pluginVersion": "6.3.5",
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false,
-        "ymax": null,
-        "ymin": null
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "expr": "electricity_used_kwh{tariff=\"1\"} * 1000",
-          "instant": true,
-          "interval": "",
-          "refId": "A"
-        }
-      ],
-      "thresholds": "",
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Total night tariff",
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "current"
-    },
-    {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "format": "watth",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 8,
-        "y": 13
+        "x": 16,
+        "y": 19
       },
       "id": 26,
       "interval": null,
@@ -747,7 +1113,7 @@
       "thresholds": "",
       "timeFrom": null,
       "timeShift": null,
-      "title": "Total day tariff",
+      "title": "High tariff (all time)",
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -762,14 +1128,13 @@
     {
       "cacheTimeout": null,
       "colorBackground": false,
-      "colorPrefix": false,
       "colorValue": false,
       "colors": [
         "#299c46",
-        "#5794F2",
+        "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "format": "none",
+      "format": "watth",
       "gauge": {
         "maxValue": 100,
         "minValue": 0,
@@ -779,11 +1144,11 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 3,
-        "x": 12,
-        "y": 13
+        "w": 4,
+        "x": 20,
+        "y": 19
       },
-      "id": 28,
+      "id": 25,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -801,6 +1166,7 @@
       "nullPointMode": "connected",
       "nullText": null,
       "options": {},
+      "pluginVersion": "6.3.5",
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -823,27 +1189,23 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "current_electricity_tariff",
-          "instant": false,
+          "expr": "electricity_used_kwh{tariff=\"1\"} * 1000",
+          "instant": true,
+          "interval": "",
           "refId": "A"
         }
       ],
-      "thresholds": "0,2",
+      "thresholds": "",
       "timeFrom": null,
       "timeShift": null,
-      "title": "Current tariff",
+      "title": "Low tariff (all time)",
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
         {
           "op": "=",
-          "text": "Night",
-          "value": "1"
-        },
-        {
-          "op": "=",
-          "text": "Day",
-          "value": "2"
+          "text": "N/A",
+          "value": "null"
         }
       ],
       "valueName": "current"
@@ -854,12 +1216,105 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 16
+        "y": 22
       },
       "id": 16,
       "panels": [],
       "title": "Gas",
       "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 0,
+        "y": 23
+      },
+      "id": 33,
+      "interval": "",
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": true,
+        "values": true
+      },
+      "lines": false,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "6.3.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": true,
+      "targets": [
+        {
+          "expr": "increase(gas_used_m3[30m])",
+          "instant": false,
+          "interval": "30m",
+          "intervalFactor": 1,
+          "legendFormat": "Gas",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Gas used (30min)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "m3",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "cacheTimeout": null,
@@ -870,6 +1325,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "decimals": 3,
       "format": "m3",
       "gauge": {
         "maxValue": 100,
@@ -879,10 +1335,10 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 2,
+        "h": 3,
         "w": 4,
-        "x": 0,
-        "y": 17
+        "x": 12,
+        "y": 23
       },
       "id": 17,
       "interval": null,
@@ -934,7 +1390,93 @@
       "thresholds": "",
       "timeFrom": null,
       "timeShift": null,
-      "title": "Total",
+      "title": "Total (all time)",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "decimals": 3,
+      "format": "m3",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 12,
+        "y": 26
+      },
+      "id": 34,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "pluginVersion": "6.3.5",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "increase(gas_used_m3[24h])",
+          "instant": true,
+          "interval": "24h",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total (last 24h)",
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -955,7 +1497,7 @@
     "list": []
   },
   "time": {
-    "from": "now-3h",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {
@@ -973,7 +1515,7 @@
     ]
   },
   "timezone": "",
-  "title": "P1 Exporter",
+  "title": "P1 Dashboard",
   "uid": "urzy6bcWz",
-  "version": 5
+  "version": 12
 }
